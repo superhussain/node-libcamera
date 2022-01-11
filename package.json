@@ -1,0 +1,55 @@
+{
+  "name": "node-libcamera",
+  "author": "Hussain Abbas",
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "module": "dist/node-libcamera.esm.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "peerDependencies": {},
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^7.0.5",
+    "husky": "^7.0.4",
+    "size-limit": "^7.0.5",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.3.1",
+    "typescript": "^3.9.10"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "size-limit": [
+    {
+      "path": "dist/node-libcamera.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/node-libcamera.esm.js",
+      "limit": "10 KB"
+    }
+  ]
+}
