@@ -1,7 +1,7 @@
 import { LibCamera } from './options'
 import { run, cmd, convertOptionsToCmdArgs } from './utils'
 
-function runLibCamera(
+async function runLibCamera(
   bin: string = 'libcamera-still',
   options: Partial<LibCamera.OptionsObject>
 ) {

@@ -1,15 +1,15 @@
 import { still, vid } from '../src/index'
 
 describe('node-libcamera', () => {
-  it('still - output', () => {
-    expect(still({ output: 'test.jpg' })).toEqual(
+  it('still - output', async () => {
+    expect(await still({ output: 'test.jpg' })).toEqual(
       'libcamera-still --output test.jpg'
     )
   })
 
-  it('still - multiple options', () => {
+  it('still - multiple options', async () => {
     expect(
-      still({
+      await still({
         output: 'test.jpg',
         timeout: 2000,
         width: 640,
@@ -21,9 +21,13 @@ describe('node-libcamera', () => {
     )
   })
 
-  it('vid', () => {
+  it('vid', async () => {
     expect(
-      vid({ output: 'test.h264', timeout: 10000, 'save-pts': 'timestamps.txt' })
+      await vid({
+        output: 'test.h264',
+        timeout: 10000,
+        'save-pts': 'timestamps.txt',
+      })
     ).toEqual(
       'libcamera-vid --output test.h264 --timeout 10000 --save-pts timestamps.txt'
     )
