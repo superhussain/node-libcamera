@@ -1,8 +1,22 @@
 {
   "name": "node-libcamera",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "A Node.js wrapper for the Raspberry Pi libcamera API",
-  "keywords": ["raspberry pi", "camera", "video", "streaming", "stream", "libcamera", "node-libcamera", "raspicam", "raspivid", "raspistill", "libcamera-still", "libcamera-vid", "libcamera-jpeg"],
+  "keywords": [
+    "raspberry pi",
+    "camera",
+    "video",
+    "streaming",
+    "stream",
+    "libcamera",
+    "node-libcamera",
+    "raspicam",
+    "raspivid",
+    "raspistill",
+    "libcamera-still",
+    "libcamera-vid",
+    "libcamera-jpeg"
+  ],
   "homepage": "https://github.com/superhussain/node-libcamera#readme",
   "bugs": {
     "url": "https://github.com/superhussain/node-libcamera/issues",
