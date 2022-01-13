@@ -1,6 +1,6 @@
 {
   "name": "node-libcamera",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "A Node.js wrapper for the Raspberry Pi libcamera API",
   "keywords": [
     "raspberry pi",
