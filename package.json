@@ -1,8 +1,15 @@
 {
   "name": "node-libcamera",
-  "author": "Hussain Abbas",
   "version": "0.1.7",
+  "description": "A Node.js wrapper for the Raspberry Pi libcamera API",
+  "keywords": ["raspberry pi", "camera", "video", "streaming", "stream", "libcamera", "node-libcamera", "raspicam", "raspivid", "raspistill", "libcamera-still", "libcamera-vid", "libcamera-jpeg"],
+  "homepage": "https://github.com/superhussain/node-libcamera#readme",
+  "bugs": {
+    "url": "https://github.com/superhussain/node-libcamera/issues",
+    "email": "howdy@hussainabbas.com"
+  },
   "license": "MIT",
+  "author": "Hussain Abbas <howdy@hussainabbas.com> (https://hussainabbas.com)",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "module": "dist/node-libcamera.esm.js",
