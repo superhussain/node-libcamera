@@ -7,7 +7,7 @@ function runLibCamera(
 ) {
   const args = convertOptionsToCmdArgs(options)
   const command = cmd(bin, args)
-  if (__DEV__) {
+  if (process.env.NODE_ENV === 'test') {
     console.log(command)
     return command
   }
