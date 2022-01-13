@@ -1,5 +1,5 @@
 import { exec, ExecOptionsWithBufferEncoding } from 'child_process'
-import { OPTIONS, LibCamera } from './options'
+import { optionConverterMap, LibCamera } from './options'
 
 export function cmd(base: string, args?: string[]): string {
   if (base && !args) return base
@@ -16,17 +16,14 @@ export function run(command: string, options?: ExecOptionsWithBufferEncoding) {
 }
 
 export function convertOptionsToCmdArgs(
-  options: LibCamera.OptionsObject
+  options: Partial<LibCamera.OptionsObject>
 ): string[] {
   const args: string[] = []
   Object.entries(options).forEach(([key, val]) => {
-    const opt = OPTIONS[key as LibCamera.OptionKeys]
-    if (typeof opt.validator === 'function' && !opt.validator(val)) {
-      throw new Error(`Invalid value for option "${key}"`)
-    }
-    const value = typeof opt.convert === 'function' ? opt.convert(val) : val
+    const converter = optionConverterMap[key as LibCamera.OptionKeys]
+    const value = typeof converter === 'function' ? converter(val) : val
     if (value) args.push(`--${key}`)
-    if (value !== true) args.push(value)
+    if (value !== true && value?.toString()) args.push(value?.toString())
   }, true)
   return args
 }
