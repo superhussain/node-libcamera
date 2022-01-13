@@ -1,5 +1,11 @@
 # node-libcamera 📷
 
+![npm](https://img.shields.io/npm/v/node-libcamera)
+![npm bundle size](https://img.shields.io/bundlephobia/min/node-libcamera)
+![node-current](https://img.shields.io/node/v/node-libcamera)
+![NPM](https://img.shields.io/npm/l/node-libcamera)
+![checks](https://badgen.net/github/checks/superhussain/node-libcamera)
+
 A set of wrapper functions for the native [Raspberry Pi `libcamera` API](https://www.raspberrypi.com/documentation/accessories/camera.html).
 
 _Open to any and all contributions!_
