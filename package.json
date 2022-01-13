@@ -16,7 +16,7 @@
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
-    "test": "tsdx test",
+    "test": "tsdx test --no-cache",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "size": "size-limit",
@@ -51,5 +51,10 @@
       "path": "dist/node-libcamera.esm.js",
       "limit": "10 KB"
     }
-  ]
+  ],
+  "jest": {
+    "globals": {
+      "__DEV__": true
+    }
+  }
 }
