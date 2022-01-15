@@ -23,15 +23,15 @@ npm install node-libcamera
 Capture an image!
 
 ```js
-const { still } = require('node-libcamera')
+const libcamera = require('node-libcamera')
 
 // basic example
-still({ output: 'test.jpg' })
+libcamera.still({ output: 'test.jpg' })
   .then((result) => /* 📸 */ )
   .catch((error) => /* 🐛 */ )
 
 // example with options
-still({
+libcamera.still({
   output: 'images/test.jpg', // output file path
   timeout: 2000, // timeout before taking the picture
   width: 640, // image width
@@ -46,10 +46,10 @@ still({
 Record a video!
 
 ```js
-const { vid } = require('node-libcamera')
+const libcamera = require('node-libcamera')
 
 // record a 10s video
-vid({ output: 'test.h264', timeout: 10000, 'save-pts': 'timestamps.txt' })
+libcamera.vid({ output: 'test.h264', timeout: 10000, 'save-pts': 'timestamps.txt' })
   .then((result) => /* 🎥 */ )
   .catch((error) => /* 🐛 */ )
 ```
