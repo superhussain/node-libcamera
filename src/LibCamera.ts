@@ -139,11 +139,4 @@ export namespace LibCamera {
   }
 }
 
-export const optionConverterMap: Partial<Record<
-  LibCamera.OptionKeys,
-  LibCamera.OptionConverter
->> = {
-  preview(val: LibCamera.PreviewOption) {
-    return `${val.x},${val.y},${val.width},${val.height}`
-  },
-} as const
+export default LibCamera

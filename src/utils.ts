@@ -1,20 +1,40 @@
 import { exec, ExecOptionsWithBufferEncoding } from 'child_process'
-import { optionConverterMap, LibCamera } from './options'
+import LibCamera from './LibCamera'
 
+/**
+ * Get the string command of a base command with an array of args
+ * @param base The base command without any flags
+ * @param args An array of args command args
+ * @returns The command string
+ */
 export function cmd(base: string, args?: string[]): string {
   if (base && !args) return base
   return `${base} ${args?.join(' ')}`
 }
 
-export function run(command: string, options?: ExecOptionsWithBufferEncoding) {
+/**
+ * Execute a command
+ * @param command The command string
+ * @param options Any options to pass to the node exec function
+ * @returns A promise that resolves to the stdout of the command that was run
+ */
+export function run(
+  command: string,
+  options?: ExecOptionsWithBufferEncoding
+): Promise<string> {
   return new Promise((resolve, reject) => {
     exec(command, options, (error, stdout, stderr) => {
       if (stderr || error) reject(stderr || error)
-      resolve(stdout)
+      resolve(stdout.toString())
     })
   })
 }
 
+/**
+ * Convert libcamera options to command line args
+ * @param options Options for the libcamera service
+ * @returns An array of command line args
+ */
 export function convertOptionsToCmdArgs(
   options: Partial<LibCamera.OptionsObject>
 ): string[] {
@@ -26,4 +46,13 @@ export function convertOptionsToCmdArgs(
     if (value !== true && value?.toString()) args.push(value?.toString())
   }, true)
   return args
+}
+
+export const optionConverterMap: Partial<Record<
+  LibCamera.OptionKeys,
+  LibCamera.OptionConverter
+>> = {
+  preview(val: LibCamera.PreviewOption) {
+    return `${val.x},${val.y},${val.width},${val.height}`
+  },
 }

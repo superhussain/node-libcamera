@@ -1,4 +1,4 @@
-import { LibCamera } from './options'
+import LibCamera from './LibCamera'
 import { run, cmd, convertOptionsToCmdArgs } from './utils'
 
 async function runLibCamera(
@@ -25,3 +25,6 @@ export function still(options: Partial<LibCamera.OptionsObject>) {
 export function vid(options: Partial<LibCamera.OptionsObject>) {
   return runLibCamera('libcamera-vid', options)
 }
+
+export const libcamera = { jpeg, still, vid }
+export default libcamera
