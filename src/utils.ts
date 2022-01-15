@@ -43,7 +43,9 @@ export function convertOptionsToCmdArgs(
     const converter = optionConverterMap[key as LibCamera.OptionKeys]
     const value = typeof converter === 'function' ? converter(val) : val
     if (value) args.push(`--${key}`)
-    if (value !== true && value?.toString()) args.push(value?.toString())
+    if (value && value !== true && value?.toString()) {
+      args.push(value?.toString())
+    }
   }, true)
   return args
 }
@@ -52,7 +54,16 @@ export const optionConverterMap: Partial<Record<
   LibCamera.OptionKeys,
   LibCamera.OptionConverter
 >> = {
-  preview(val: LibCamera.PreviewOption) {
-    return `${val.x},${val.y},${val.width},${val.height}`
+  preview({ x, y, width, height }: LibCamera.PreviewOption) {
+    return `${x},${y},${width},${height}`
+  },
+  thumb({ width, height, quality }: LibCamera.ThumbOption) {
+    return `${width}:${height}:${quality}`
+  },
+  awbgains([val1, val2]: [number, number]) {
+    return `${val1},${val2}`
+  },
+  roi({ x, y, w, h }: LibCamera.ROIOption) {
+    return `${x},${y},${w},${h}`
   },
 }

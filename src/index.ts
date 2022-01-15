@@ -14,17 +14,21 @@ async function runLibCamera(
   return run(command)
 }
 
-export function jpeg(options: Partial<LibCamera.OptionsObject>) {
+export function jpeg(options: Partial<LibCamera.StillOptionsObject>) {
   return runLibCamera('libcamera-jpeg', options)
 }
 
-export function still(options: Partial<LibCamera.OptionsObject>) {
+export function still(options: Partial<LibCamera.StillOptionsObject>) {
   return runLibCamera('libcamera-still', options)
 }
 
-export function vid(options: Partial<LibCamera.OptionsObject>) {
+export function vid(options: Partial<LibCamera.VideoOptionsObject>) {
   return runLibCamera('libcamera-vid', options)
 }
 
-export const libcamera = { jpeg, still, vid }
+export function raw(options: Partial<LibCamera.VideoOptionsObject>) {
+  return runLibCamera('libcamera-raw', options)
+}
+
+export const libcamera = { jpeg, still, vid, raw }
 export default libcamera
