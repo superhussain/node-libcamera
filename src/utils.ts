@@ -24,8 +24,9 @@ export function run(
 ): Promise<string> {
   return new Promise((resolve, reject) => {
     exec(command, options, (error, stdout, stderr) => {
-      if (stderr || error) reject(stderr || error)
-      resolve(stdout?.toString()?.trim())
+      if (error) reject(error)
+      const result = stdout?.toString()?.trim() || stderr?.toString()?.trim()
+      resolve(result)
     })
   })
 }
