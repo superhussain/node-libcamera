@@ -3,21 +3,21 @@ export namespace LibCamera {
     /**
      * Print help information for the application
      *
-     * The `--help` option causes every application to print its full set of command line options with a brief synopsis of each, and then quit.
+     * The `help` option causes every application to print its full set of command line options with a brief synopsis of each, and then quit.
      **/
     help: boolean
 
     /**
      * Print out a software version number
      *
-     * All `libcamera-apps` will, when they see the `--version` option, print out a version string both for `libcamera` and `libcamera-apps` and then quit.
+     * All `libcamera-apps` will, when they see the `version` option, print out a version string both for `libcamera` and `libcamera-apps` and then quit.
      */
     version: boolean
 
     /**
      * Delay before application stops automatically <milliseconds>
      *
-     * The `--timeout` option specifies how long the application runs before it stops, whether it is recording a video or showing a preview. In the case of still image capture, the application will show the preview window for this long before capturing the output image.
+     * The `timeout` option specifies how long the application runs before it stops, whether it is recording a video or showing a preview. In the case of still image capture, the application will show the preview window for this long before capturing the output image.
      *
      * If unspecified, the default value is 5000 (5 seconds). The value zero causes the application to run indefinitely.
      */
@@ -49,7 +49,7 @@ export namespace LibCamera {
      *
      * The preview window is switched to use the Qt-based implementation. This option is not normally recommended because it no longer uses zero-copy buffer sharing nor GPU acceleration and is therefore very expensive, however, it does support X forwarding (which the other preview implementations do not).
      *
-     * The Qt preview window does not support the `--fullscreen` option. Generally it is advised to try and keep the preview window small.
+     * The Qt preview window does not support the `fullscreen` option. Generally it is advised to try and keep the preview window small.
      */
     'qt-preview': boolean
 
@@ -76,7 +76,7 @@ export namespace LibCamera {
      * | `%bg`            | The gain applied to the blue component of each pixel |
      * | `%focus`         | The focus metric for the image, where a larger value implies a sharper image |
      *
-     * When not provided, the `--info-text` string defaults to `"#%frame (%fps fps) exp %exp ag %ag dg %dg"`.
+     * When not provided, the `info-text` string defaults to `"#%frame (%fps fps) exp %exp ag %ag dg %dg"`.
      */
     'info-text': string
   }
@@ -121,7 +121,7 @@ export namespace LibCamera {
     /**
      * Force sensor to capture in full resolution mode
      *
-     * This option forces the sensor to be driven in its full resolution readout mode for still and video capture, irrespective of the requested output resolution (given by `--width` and `--height`).
+     * This option forces the sensor to be driven in its full resolution readout mode for still and video capture, irrespective of the requested output resolution (given by `width` and `height`).
      *
      * Using this option often incurs a frame rate penalty, as larger resolution frames are slower to read out.
      *
@@ -339,7 +339,7 @@ export namespace LibCamera {
     /**
      * Output file name <string>
      *
-     * `--output` sets the name of the output file to which the output image or video is written. Besides regular file names, this may take the following special values:
+     * `output` sets the name of the output file to which the output image or video is written. Besides regular file names, this may take the following special values:
      *
      * * `-` - write to stdout
      *
