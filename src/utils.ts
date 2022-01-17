@@ -44,7 +44,7 @@ export function convertOptionsToCmdArgs(
     const converter = optionConverterMap[key as LibCamera.OptionKeys]
     const value = typeof converter === 'function' ? converter(val) : val
     if (value) args.push(`--${key}`)
-    if (value && value !== true && value?.toString()) {
+    if (typeof value !== 'boolean' && value?.toString()) {
       args.push(value?.toString())
     }
   }, true)
